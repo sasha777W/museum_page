@@ -1,0 +1,64 @@
+:root {
+  --c-gray: #eee;
+  --color-header: #000000;
+  --bg-color: #ffffff;
+  --event-color: #687480;
+  --kvitki-color: #0f0e08;
+  --green-color: #1a5a4c;
+  --green-shadow: #1a5a4c40;
+  --text-color: #4e4e4e;
+  --desktop-min-width: 1024px;
+  --transition-speed: 0.3s;
+}
+
+.dark--theme {
+  --color-header: #ffffff;
+  --bg-color: #181717;
+  --event-color: #687480;
+  --kvitki-color: #eeeeee;
+  --green-color: #1a5a4c;
+  --green-shadow: #1a5a4c40;
+  --text-color: #4e4e4e;
+}
+
+@mixin on-tablet {
+  @media (min-width: 768px) {
+    @content;
+  }
+}
+
+@mixin on-desktop {
+  @media (min-width: 768px) {
+    @content;
+  }
+}
+
+@mixin page-grid {
+  --columns: 2;
+
+  display: grid;
+  column-gap: 20px;
+  grid-template-columns: repeat(var(--columns), 1fr);
+
+  @include on-tablet {
+    column-gap: 30px;
+
+    --columns: 6;
+  }
+
+  @include on-desktop {
+    --columns: 12;
+  }
+}
+
+@import 'fonts';
+@import 'html';
+@import 'header';
+@import 'baseline-menu';
+@import 'page__menu';
+@import 'overlay';
+@import 'tickets';
+@import 'mains';
+@import 'footer-0';
+@import 'footer-1';
+
